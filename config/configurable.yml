@@ -1,0 +1,26 @@
+# Be sure to restart your server when you modify this file.
+
+# Define public values that are prone to changes when ran on different circumstances/environments
+#
+# These values can be altered safely from env variables and is
+# HIGHLY RECOMMENDED to be altered on env variables to express system's adaptibility
+#
+# Notes:
+# - Document what the env variable does to the system on README.md (highly recommended)
+# - Make sure you ALWAYS have a default value when env variable is omitted (even if its nil or "")
+# - Prefix your env variable with 'RAILS_' to avoid conflict with other env variables
+# - It's also recommended to add a second prefix to shortly categorize its usecase
+#   Example: 'RAILS_CARRIERWAVE_', 'RAILS_DEVISE_', RAILS_MODEL_NAME_', 'RAILS_MODULE_NAME_', 'RAILS_METHOD_NAME_' etc.
+
+# More info:
+# https://guides.rubyonrails.org/configuring.html#custom-configuration
+
+# Add this to `config/application.rb`
+#
+# ```ruby
+# config.settings = YAML.load(ERB.new(File.read("#{Rails.root}/config/configurable.yml")).result).deep_symbolize_keys
+# ```
+
+# Rails.configuration.settings[:slack_client]
+slack_client:
+  token: <%= ENV.fetch("SLACK_API_TOKEN") { '' } %>

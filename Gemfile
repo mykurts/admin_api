@@ -46,3 +46,5 @@ gem 'devise_token_auth'
 gem 'json-schema'
 
 gem 'rack-cors'
+
+gem 'slack-ruby-client'

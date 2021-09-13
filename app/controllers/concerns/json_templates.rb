@@ -18,4 +18,15 @@ module JsonTemplates
     }
   end
 
+  def to_slack_channel_messages(message, user=nil)
+    @name = nil
+    if user.present?
+      @name = user.user.profile.display_name.present? ? user.user.profile.display_name : user.user.profile.real_name
+    end
+    {
+      message: message['text'].gsub(/"|\<|\>/, ''),
+      sender: @name.present? ? @name  : message['username']
+    }
+  end
+
 end
